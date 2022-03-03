@@ -27,7 +27,6 @@ export default function Header() {
 	}	
 
 	function sidebarToggle(show=true) {
-		console.log("tog",show)
 		document.querySelector(".Sidebar")?.classList?.toggle?.("active",!!show)
 
 

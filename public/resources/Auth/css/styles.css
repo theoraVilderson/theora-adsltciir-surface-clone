@@ -266,6 +266,13 @@ aside > div > a > svg {
 	width: 100%;
 	height: 100%;
 	position: relative;
+	overflow: hidden;
+}
+.slides {
+	z-index: -1;
+	display: flex;
+	flex-direction: row-reverse;
+	user-select: none;
 }
 .slide {
 	position: absolute;
@@ -273,11 +280,56 @@ aside > div > a > svg {
 	height: 100%;
 	left: 0;
 	top: 0;
+	z-index: -2;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
 }
-.slide img {
+.slide.slide-transition {
+	transition: .4s;
+}
+.slide.slide-transition-long {
+	transition: .4s;
+}
+.slide:first-child {
+	z-index: 0;
+}
+.slide > div {
 	object-fit: cover ;
 	width: 100%;
 	height: 100%;
+}
+.slide-controller {
+	z-index: 2;
+}
+.go-btns button{
+
+	background: transparent;
+	border: none;
+	outline: none;
+	padding: 20px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--color-theme-5);
+	text-shadow: 2px 2px 2px var(--color-theme-4);
+	font-size: var(--font-size-3);
+	cursor: pointer;
+	opacity: .8;
+	transition: .1s ease-in-out;
+}
+.go-btns button:hover{
+
+	color: var(--color-theme-1);
+	text-shadow: 2px 2px 2px 1px var(--color-theme-1);
+	opacity: 1;
+}
+
+.go-btns .go-left {
+	left: 0;
+}
+.go-btns .go-right {
+	right: 0;
 }
 
 
@@ -537,12 +589,6 @@ footer a:hover {
 
 @media (max-width: 1078px) {
 
-
-	
-}
-
-@media (max-width: 1078px) {
-
 	.Slider ,.action-items{
 		display: none;
 	}
@@ -566,3 +612,16 @@ footer a:hover {
 		flex-direction: column;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
